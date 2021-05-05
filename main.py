@@ -30,6 +30,8 @@ if(mode == 'backup' or mode == None):
 
 elif(mode == 'send'):
     ds = DeckSender(url, auth)
-    # ds.sendBoard(data)
+    with open(os.path.join(args.directory, FILE_NAME)) as json_file:
+        data = json.load(json_file)
+        ds.sendBoard(data)
 else:
     raise ValueError('Unknown mode or missing properites.')
