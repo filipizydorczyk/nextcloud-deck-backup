@@ -1,2 +1,5 @@
 __pycache__
 nextcloud-decks.json
+main.spec
+build
+dist
