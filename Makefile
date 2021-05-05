@@ -9,3 +9,6 @@ init:
 
 build:
 	pyinstaller --onefile main.py
+
+install:
+	cp dist/main ~/.local/bin/nextcloud-deck-backuper
