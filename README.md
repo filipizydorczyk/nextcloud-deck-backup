@@ -27,5 +27,5 @@ python main.py --mode send # to send data saved in file nextcloud-decks.json to 
 
 -   `make init` - install requierments (only needed to pack script to single file if u dont want this u dont have to do this)
 -   `make build` - pack python scripts to single file
--   `make install` - copy builded file to `~/.local/bin/` as `nextcloud-deck-backuper`
+-   `make install` - copy built file to `~/.local/bin/` as `nextcloud-deck-backuper`
 -   `make clean` - delete build and build artifacts from root project directory
