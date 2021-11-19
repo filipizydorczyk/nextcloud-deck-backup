@@ -17,7 +17,7 @@ class ProgressListener:
 
     def update(self, total: int) -> None:
         if(self.__bar == None):
-            self.__bar = Bar('Writing boards to nextcloud', max=total)
+            self.__bar = Bar('Progress', max=total)
         else:
             self.__bar.next()
 
