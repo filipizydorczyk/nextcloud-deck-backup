@@ -163,8 +163,9 @@ class DeckSender:
 
         if card['labels']:
             for label in card['labels']:
-                self.__assignLabel(labelsMap[label['id']],
-                                   createdCard['id'], boardIdTo, stackIdTo)
+                if (label['id'] in labelsMap):
+                    self.__assignLabel(labelsMap[label['id']],
+                                       createdCard['id'], boardIdTo, stackIdTo)
 
         if card['archived']:
             self.__archiveCard(createdCard, boardIdTo, stackIdTo)
@@ -189,6 +190,7 @@ class DeckSender:
                 if not 'cards' in stack:
                     continue
                 for card in stack['cards']:
+                    print("CARD NAME: ", card['title'])
                     self.__copyCard(
                         card, createdBoard['id'], stackIdTo, labelsMap)
 
