@@ -28,6 +28,9 @@ if(mode == 'backup' or mode == None):
     with open(os.path.join(args.directory, FILE_NAME), 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
+    for warn in dd.getAllWaringns():
+        print(warn)
+
 elif(mode == 'send'):
     ds = DeckSender(url, auth)
     ds.addListener(listener)
@@ -35,6 +38,10 @@ elif(mode == 'send'):
     with open(os.path.join(args.directory, FILE_NAME)) as json_file:
         data = json.load(json_file)
         ds.sendBoard(data)
+
+    for warn in ds.getAllWaringns():
+        print(warn)
+
 else:
     raise ValueError('Unknown mode or missing properites.')
 

@@ -30,6 +30,7 @@ class ProgressObserver:
 
     def __init__(self) -> None:
         self.__listeners = []
+        self._warnings = []
 
     def addListener(self, listener: ProgressListener) -> None:
         self.__listeners.append(listener)
@@ -37,6 +38,11 @@ class ProgressObserver:
     def update(self, total: int) -> None:
         for listener in self.__listeners:
             listener.update(total)
+
+    def getAllWaringns(self) -> list:
+        result = self._warnings.copy()
+        self._warnings = []
+        return result
 
 
 class DeckDownloader(ProgressObserver):
@@ -105,7 +111,6 @@ class DeckSender(ProgressObserver):
         super(DeckSender, self).__init__()
         self.__urlTo = urlTo
         self.__authTo = authTo
-        self.__warnings = []
 
     def __createBoard(self, title, color):
         response = requests.post(
@@ -205,7 +210,7 @@ class DeckSender(ProgressObserver):
                     self.__assignLabel(labelsMap[label['id']],
                                        createdCard['id'], boardIdTo, stackIdTo)
                 else:
-                    self.__warnings.append("WARNING: Label with id {} skipped for {} card".format(
+                    self._warnings.append("\nWARNING: Label with id {} skipped for {} card".format(
                         label['id'], card['title']))
 
         if card['archived']:
