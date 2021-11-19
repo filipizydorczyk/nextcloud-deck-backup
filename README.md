@@ -38,3 +38,4 @@ Progress |################################| 19/19
 -   [x] Add progress bar
 -   [x] Quiet warnings when verify is false
 -   [ ] Add backuping files associated with decks
+-   [ ] Add caching data
