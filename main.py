@@ -17,10 +17,11 @@ args = parser.parse_args()
 mode = args.mode
 url = args.host
 auth = (args.username, args.passwd)
+listener = ProgressListener()
 
 if(mode == 'backup' or mode == None):
     dd = DeckDownloader(url, auth)
-    dd.addListener(ProgressListener())
+    dd.addListener(listener)
 
     data = dd.fetchBoards()
 
@@ -29,10 +30,12 @@ if(mode == 'backup' or mode == None):
 
 elif(mode == 'send'):
     ds = DeckSender(url, auth)
-    ds.addListener(ProgressListener())
+    ds.addListener(listener)
 
     with open(os.path.join(args.directory, FILE_NAME)) as json_file:
         data = json.load(json_file)
         ds.sendBoard(data)
 else:
     raise ValueError('Unknown mode or missing properites.')
+
+listener.finishBar()

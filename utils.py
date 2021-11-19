@@ -18,6 +18,10 @@ class ProgressListener:
         else:
             self.__bar.next()
 
+    def finishBar(self) -> None:
+        if(self.__bar != None):
+            self.__bar.finish()
+
 
 class ProgressObserver:
 
