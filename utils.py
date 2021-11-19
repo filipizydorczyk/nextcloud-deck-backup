@@ -5,6 +5,7 @@ from progress.bar import Bar
 import requests
 
 headers = {'OCS-APIRequest': 'true', 'Content-Type': 'application/json'}
+requests.packages.urllib3.disable_warnings()
 
 
 class ProgressListener:

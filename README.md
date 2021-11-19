@@ -34,4 +34,4 @@ python main.py --mode send # to send data saved in file nextcloud-decks.json to 
 
 -   [ ] Possibility to provide `.pem` file for self signed certificates
 -   [x] Add progress bar
--   [ ] Quiet warnings when verify is false
+-   [x] Quiet warnings when verify is false
