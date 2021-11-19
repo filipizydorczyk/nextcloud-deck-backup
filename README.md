@@ -29,3 +29,9 @@ python main.py --mode send # to send data saved in file nextcloud-decks.json to 
 -   `make build` - pack python scripts to single file
 -   `make install` - copy built file to `~/.local/bin/` as `nextcloud-deck-backuper`
 -   `make clean` - delete build and build artifacts from root project directory
+
+# To do
+
+ - [ ] Possibility to provide `.pem` file for self signed certificates
+ - [ ] Add progress bar
+ - [ ] Quiet warnings when verify is false
