@@ -3,9 +3,11 @@ Based on https://gist.github.com/svbergerem/5914d7f87764901aefddba125af99938.
 """
 from progress.bar import Bar
 import requests
+import urllib3
 
 headers = {'OCS-APIRequest': 'true', 'Content-Type': 'application/json'}
-requests.packages.urllib3.disable_warnings()
+requests.packages.urllib3.disable_warnings(
+    urllib3.exceptions.InsecureRequestWarning)
 
 
 class ProgressListener:
